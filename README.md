@@ -37,7 +37,7 @@
 <h3>Cloning</h3>
 
 ```bash
-git clone https://costafabricio.github.io/Api_de_criptomoedas/
+git clone https://github.com/costafabricio/Api_de_criptomoedas
 ```
 
 <h3>Starting</h3>
