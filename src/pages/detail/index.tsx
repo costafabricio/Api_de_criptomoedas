@@ -23,11 +23,11 @@ export function Detail() {
   useEffect(() =>{
     async function getCoin(){
       try {
-        fetch(
-       `https://api.allorigins.win/raw?url=${encodeURIComponent(
-       `https://rest.coincap.io/v3/assets/${cripto}`
-      )}`
-      ) .then(response => response.json())
+       fetch(`https://rest.coincap.io/v3/assets/${cripto}`, {
+        headers: {
+           Authorization: `Bearer ${import.meta.env.VITE_COINCAP_API_KEY}`
+        }
+      }).then(response => response.json())
         .then((data: DataProps) => {
           
           if("error" in data) {

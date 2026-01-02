@@ -33,11 +33,11 @@ export function Home() {
   }, [offset])
   
   async function getData() {
-   fetch(
-  `https://api.allorigins.win/raw?url=${encodeURIComponent(
-    `https://rest.coincap.io/v3/assets?limit=10&offset=${offset}`
-  )}`
-) .then(response => response.json())
+    fetch(`https://rest.coincap.io/v3/assets?limit=10&offset=${offset}`, {
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_COINCAP_API_KEY}`
+      }
+  }) .then(response => response.json())
     .then((data) => {
       const coinsData = data.data
 
