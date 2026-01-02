@@ -23,8 +23,11 @@ export function Detail() {
   useEffect(() =>{
     async function getCoin(){
       try {
-        fetch(`https://rest.coincap.io/v3/assets/${cripto}?apiKey=280b10897ebf069e6015e1cc7883edeaa91116eba10c5180904ce693aeab4e4d`)
-        .then(response => response.json())
+        fetch(
+       `https://api.allorigins.win/raw?url=${encodeURIComponent(
+       `https://rest.coincap.io/v3/assets/${cripto}`
+      )}`
+      ) .then(response => response.json())
         .then((data: DataProps) => {
           
           if("error" in data) {

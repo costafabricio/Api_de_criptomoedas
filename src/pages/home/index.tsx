@@ -33,8 +33,11 @@ export function Home() {
   }, [offset])
   
   async function getData() {
-    fetch(`https://rest.coincap.io/v3/assets?limit=10&offset=${offset}&apiKey=280b10897ebf069e6015e1cc7883edeaa91116eba10c5180904ce693aeab4e4d`)
-    .then(response => response.json())
+   fetch(
+  `https://api.allorigins.win/raw?url=${encodeURIComponent(
+    `https://rest.coincap.io/v3/assets?limit=10&offset=${offset}`
+  )}`
+) .then(response => response.json())
     .then((data) => {
       const coinsData = data.data
 
